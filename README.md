@@ -1,4 +1,6 @@
-﻿<p align="center">🌐 <b>English</b> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a></p>
+<p align="center"><a href="https://khemegha.github.io/ASA-AI-MCP-Security/"><img src="https://img.shields.io/badge/SENTINEL_MCP-Live_landing_page-D6247A?style=for-the-badge" alt="SENTINEL MCP landing page"></a></p>
+
+<p align="center">🌐 <b>English</b> · <a href="README.fr.md">Français</a> · <a href="README.es.md">Español</a></p>
 
 <div align="center">
 
