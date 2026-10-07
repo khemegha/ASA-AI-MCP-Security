@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SENTINEL MCP — AI Workflow Security &amp; Autonomous SOC | ASA AI</title>
+<meta name="description" content="SENTINEL MCP by ASA AI: inline security for AI agents and MCP workflows, AI observability, and an autonomous SOC — on-premise and sovereign.">
+<meta property="og:title" content="SENTINEL MCP — Your AI agents never sleep. Neither do the attackers hunting them.">
+<meta property="og:description" content="Inline security for AI agents and MCP workflows, AI observability and an autonomous SOC by ASA AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0C17}
+a{color:#F06AA5}a:hover{color:#FFB3D4}
+</style>
+</head>
+<body>
+<div style="font-family: 'IBM Plex Sans', system-ui, sans-serif; color: #EDEBF5; background: #0A0C17; min-height: 100vh; overflow: hidden">
+
+<!-- NAV -->
+<header style="border-bottom: 1px solid #1E2340; background: #0A0C17">
+<nav style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 40px; height: 40px; border-radius: 10px; background: #3A1458; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; color: #FFFFFF; border: 1px solid #6B2FA0">ASA</div>
+<div style="display: flex; flex-direction: column">
+<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.08em">SENTINEL</span>
+<span style="font-size: 12px; color: #A7A3BF">ASA AI · Security Lake</span>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<a href="#threat" style="color: #C9C6DC; text-decoration: none">The threat</a>
+<a href="#platform" style="color: #C9C6DC; text-decoration: none">Platform</a>
+<a href="#soc" style="color: #C9C6DC; text-decoration: none">Autonomous SOC</a>
+<a href="#compliance" style="color: #C9C6DC; text-decoration: none">Compliance</a>
+<a href="https://github.com/khemegha" style="color: #C9C6DC; text-decoration: none; display: flex; align-items: center; gap: 6px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"></path></svg>GitHub</a>
+<a href="mailto:contact@asa-ai.fr?subject=SENTINEL%20MCP%20demo" style="background: #E0307F; color: #FFFFFF; text-decoration: none; padding: 12px 20px; border-radius: 8px; font-weight: 600; min-height: 20px">Book a live demo</a>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 88px 24px 40px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; border: 1px solid #3A2A5C; background: #15122A; padding: 8px 16px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #D8C9F2">
+<span style="width: 8px; height: 8px; border-radius: 50%; background: #22C55E"></span>
+SENTINEL MCP · AI workflow security &amp; autonomous SOC
+</div>
+<h1 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(40px, 6.2vw, 84px); line-height: 1.02; letter-spacing: -0.03em; max-width: 1080px">Your AI agents never sleep.<br><span style="color: #E0307F">Neither do the attackers hunting them.</span></h1>
+<p style="margin: 0; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.55; color: #B9B5D0; max-width: 780px">Every agent you plug into an MCP server gets tools, data and credentials. One poisoned prompt, one rogue tool call, and your automation becomes the attacker's. SENTINEL watches every invocation, every token and every tool call — and blocks the bad ones before they land.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center">
+<a href="mailto:contact@asa-ai.fr?subject=SENTINEL%20MCP%20demo" style="background: #E0307F; color: #FFFFFF; text-decoration: none; padding: 16px 28px; border-radius: 10px; font-weight: 600; font-size: 17px">See it stop an attack live</a>
+<a href="https://github.com/khemegha/ASA-AI-MCP-Security" style="border: 1px solid #3A3F66; color: #EDEBF5; text-decoration: none; padding: 16px 28px; border-radius: 10px; font-weight: 600; font-size: 17px">Explore ASA-AI MCP Security on GitHub</a>
+</div>
+</section>
+
+<!-- HERO STATS -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 0 24px 56px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: #1E2340; border: 1px solid #1E2340; border-radius: 14px; overflow: hidden">
+<div style="background: #0F1222; padding: 26px 24px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700">31,629</span>
+<span style="font-size: 14px; color: #A7A3BF">AI agent invocations inspected in 24 h</span>
+</div>
+<div style="background: #0F1222; padding: 26px 24px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700">1.05 M</span>
+<span style="font-size: 14px; color: #A7A3BF">tokens screened, in and out</span>
+</div>
+<div style="background: #0F1222; padding: 26px 24px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #22C55E">51</span>
+<span style="font-size: 14px; color: #A7A3BF">out-of-scope agent actions refused</span>
+</div>
+<div style="background: #0F1222; padding: 26px 24px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 40px; font-weight: 700; color: #F59E0B">373</span>
+<span style="font-size: 14px; color: #A7A3BF">malicious IOCs confirmed by VirusTotal</span>
+</div>
+</div>
+<p style="margin: 12px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A86A6; text-align: center">Live figures from our production lab deployment · 24-hour window</p>
+</section>
+
+<!-- HERO MOCKUP: AI ENDPOINT SECURITY OVERVIEW -->
+<section style="max-width: 1320px; margin: 0 auto; padding: 0 24px 110px">
+<div style="border: 1px solid #2A2F55; border-radius: 16px; background: #0D1020; overflow: hidden">
+<div style="display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid #1E2340; background: #11152A">
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3F66"></span>
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3F66"></span>
+<span style="width: 11px; height: 11px; border-radius: 50%; background: #3A3F66"></span>
+<span style="margin-left: 14px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8A86A6">sentinel / overview</span>
+</div>
+<div style="display: flex; flex-wrap: wrap">
+<!-- sidebar -->
+<aside style="flex: 1 1 210px; max-width: 240px; border-right: 1px solid #1E2340; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; background: #0B0E1C">
+
+
+<div style="font-size: 11px; letter-spacing: 0.12em; color: #8A86A6; padding: 14px 10px 6px; font-weight: 600">PILOTING</div>
+
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; background: #2A1022; color: #F06AA5; font-weight: 600">Overview</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">AI Observability</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">AI Agents</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">OWASP per agent</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">AI Inventory</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">Findings</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">Eval & Tasks</div>
+
+
+
+<div style="font-size: 11px; letter-spacing: 0.12em; color: #8A86A6; padding: 14px 10px 6px; font-weight: 600">COMPLIANCE</div>
+
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">OWASP LLM Top 10</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">MITRE ATLAS</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">EU AI Act</div>
+
+
+
+<div style="font-size: 11px; letter-spacing: 0.12em; color: #8A86A6; padding: 14px 10px 6px; font-weight: 600">EVALUATION</div>
+
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">Vulnerability Scanner</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">AI Eval / Red Team</div>
+
+
+
+<div style="font-size: 11px; letter-spacing: 0.12em; color: #8A86A6; padding: 14px 10px 6px; font-weight: 600">AI DEFENSE</div>
+
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">Guardrail</div>
+
+
+
+<div style="font-size: 11px; letter-spacing: 0.12em; color: #8A86A6; padding: 14px 10px 6px; font-weight: 600">INTELLIGENCE</div>
+
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">CTI & IOC</div>
+
+
+
+
+<div style="font-size: 13px; padding: 8px 10px; border-radius: 8px; color: #D0CDE2">Audit Log</div>
+
+
+</aside>
+<!-- main -->
+<div style="flex: 999 1 560px; min-width: 0; padding: 22px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700">AI Endpoint Security</span>
+<span style="font-size: 13px; color: #A7A3BF">Security posture of the MCP platform — last 7 days</span>
+</div>
+<div style="display: flex; gap: 8px; align-items: center">
+<span style="font-size: 12px; color: #4ADE80; background: #0E2A1A; border: 1px solid #1F5A36; padding: 5px 10px; border-radius: 999px">Live data</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; border: 1px solid #2A2F55; padding: 5px 10px; border-radius: 6px; filter: blur(5px); user-select: none" aria-label="Redacted address">000.000.000.0</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">Fleet machines</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #FFFFFF">16</span>
+<span style="font-size: 11px; color: #AEB6DE">4 active · 12 offline</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">MCP servers</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #FFFFFF">13</span>
+<span style="font-size: 11px; color: #AEB6DE">13/15 served via mcpo</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">Active IOCs — SIEM</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #FFFFFF">995</span>
+<span style="font-size: 11px; color: #AEB6DE">loaded in Wazuh · MISP base 588k</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">Malicious IOCs</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #F59E0B">373</span>
+<span style="font-size: 11px; color: #AEB6DE">VirusTotal</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">SIEM alerts</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #FFFFFF">727</span>
+<span style="font-size: 11px; color: #AEB6DE">Wazuh · analysisd</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5; font-weight: 500">Out-of-scope refusals</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: #4ADE80">51</span>
+<span style="font-size: 11px; color: #AEB6DE">agent guardrail</span>
+</div>
+
+</div>
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="font-weight: 600">Pillar status</span><span style="color: #8A86A6">3 pillars operational</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+
+<div style="border: 1px solid #23284A; background: #12162A; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 11px; color: #4ADE80; background: #0E2A1A; padding: 3px 8px; border-radius: 999px">Operational</span><span style="font-weight: 600; font-size: 14px">Offensive</span></div>
+<span style="font-size: 12px; color: #A7A3BF; line-height: 1.6; white-space: pre-line">nmap · nuclei · pd-tools
+voice-arsenal VoIP
+perimeter guardrail</span>
+</div>
+
+<div style="border: 1px solid #23284A; background: #12162A; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 11px; color: #4ADE80; background: #0E2A1A; padding: 3px 8px; border-radius: 999px">Operational</span><span style="font-weight: 600; font-size: 14px">Defensive</span></div>
+<span style="font-size: 12px; color: #A7A3BF; line-height: 1.6; white-space: pre-line">Wazuh SIEM — 6 agents
+MISP threat intel
+data lake / 5 min</span>
+</div>
+
+<div style="border: 1px solid #23284A; background: #12162A; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="font-size: 11px; color: #4ADE80; background: #0E2A1A; padding: 3px 8px; border-radius: 999px">Operational</span><span style="font-weight: 600; font-size: 14px">AI Security</span></div>
+<span style="font-size: 12px; color: #A7A3BF; line-height: 1.6; white-space: pre-line">Garak-MCP — 5 probes
+local Ollama LLM target
+OWASP LLM · ATLAS</span>
+</div>
+
+</div>
+</div>
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px"><span style="font-weight: 600">Invocations per model</span><span style="color: #8A86A6">24 h · measured by ASA-AI-Guard</span></div>
+<svg viewBox="0 0 600 170" preserveAspectRatio="none" style="width: 100%; height: 190px; display: block" aria-label="Invocations per model, last 24 hours">
+<line x1="0" y1="42" x2="600" y2="42" stroke="#1E2340" stroke-width="1"></line>
+<line x1="0" y1="85" x2="600" y2="85" stroke="#1E2340" stroke-width="1"></line>
+<line x1="0" y1="128" x2="600" y2="128" stroke="#1E2340" stroke-width="1"></line>
+<path d="M0.0,162.9 L26.1,158.7 L52.2,125.2 L78.3,160.8 L104.3,138.8 L130.4,121.0 L156.5,114.8 L182.6,152.4 L208.7,144.1 L234.8,137.8 L260.9,149.3 L287.0,60.3 L313.0,55.1 L339.1,52.0 L365.2,44.6 L391.3,34.2 L417.4,28.9 L443.5,20.6 L469.6,18.5 L495.7,16.4 L521.7,133.6 L547.8,156.6 L573.9,138.8 L600.0,130.5 L600,165 L0,165 Z" fill="#1E3A5F" opacity="0.7"></path>
+<path d="M0.0,162.9 L26.1,158.7 L52.2,125.2 L78.3,160.8 L104.3,138.8 L130.4,121.0 L156.5,114.8 L182.6,152.4 L208.7,144.1 L234.8,137.8 L260.9,149.3 L287.0,60.3 L313.0,55.1 L339.1,52.0 L365.2,44.6 L391.3,34.2 L417.4,28.9 L443.5,20.6 L469.6,18.5 L495.7,16.4 L521.7,133.6 L547.8,156.6 L573.9,138.8 L600.0,130.5 " fill="none" stroke="#F59E0B" stroke-width="2"></path>
+<path d="M0.0,164.0 L26.1,160.8 L52.2,133.6 L78.3,161.9 L104.3,144.1 L130.4,125.2 L156.5,118.9 L182.6,154.5 L208.7,147.2 L234.8,140.9 L260.9,151.4 L287.0,65.6 L313.0,62.4 L339.1,59.3 L365.2,52.0 L391.3,41.5 L417.4,37.3 L443.5,28.9 L469.6,25.8 L495.7,23.7 L521.7,137.8 L547.8,158.7 L573.9,142.0 L600.0,133.6 " fill="none" stroke="#3B82F6" stroke-width="2"></path>
+<path d="M0.0,165.0 L26.1,164.0 L52.2,162.9 L78.3,161.9 L104.3,160.8 L130.4,158.7 L156.5,156.6 L182.6,158.7 L208.7,155.6 L234.8,154.5 L260.9,152.4 L287.0,149.3 L313.0,146.2 L339.1,144.1 L365.2,142.0 L391.3,137.8 L417.4,133.6 L443.5,131.5 L469.6,129.4 L495.7,127.3 L521.7,152.4 L547.8,160.8 L573.9,161.9 L600.0,159.8 L600,165 L0,165 Z" fill="#6B1F4A" opacity="0.6"></path>
+<path d="M0.0,165.0 L26.1,164.0 L52.2,162.9 L78.3,161.9 L104.3,160.8 L130.4,158.7 L156.5,156.6 L182.6,158.7 L208.7,155.6 L234.8,154.5 L260.9,152.4 L287.0,149.3 L313.0,146.2 L339.1,144.1 L365.2,142.0 L391.3,137.8 L417.4,133.6 L443.5,131.5 L469.6,129.4 L495.7,127.3 L521.7,152.4 L547.8,160.8 L573.9,161.9 L600.0,159.8 " fill="none" stroke="#E0307F" stroke-width="2"></path>
+</svg>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #A7A3BF">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 3px; background: #F59E0B"></span>mistral:7b</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 3px; background: #3B82F6"></span>qwen2.5:7b</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 3px; background: #E0307F"></span>gemma2:9b</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- THREAT -->
+<section id="threat" style="background: #0D0F1D; border-top: 1px solid #1E2340; border-bottom: 1px solid #1E2340">
+<div style="max-width: 1240px; margin: 0 auto; padding: 100px 24px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 820px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">THE NEW ATTACK SURFACE</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.02em">You gave your AI the keys to the kingdom. Nobody is checking what it opens.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9B5D0">Your firewall sees HTTPS. Your EDR sees a trusted process. Your SIEM sees nothing at all. Meanwhile, an AI agent with shell access, a vector store and your ticketing system is taking instructions from whatever text it reads next.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px">
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #F87171">01 · PROMPT INJECTION</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">One email can hijack your agent</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">Hidden instructions in a document, a web page or a log line rewrite your agent's goal mid-task. It still looks like it's working for you.</p>
+</div>
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FBBF24">02 · TOOL ABUSE</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Every MCP tool is a loaded weapon</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">nmap, nuclei, shell, database, file system. Exposed through MCP, a single out-of-scope call turns your pentest agent into a live attack on your own network.</p>
+</div>
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C084FC">03 · SILENT EXFILTRATION</span>
+<h3 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 22px">Your data leaves one token at a time</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">Hostnames, IPs, credentials and internal topology flow into model context and back out. No alert fires. No log line looks wrong.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PLATFORM: OBSERVABILITY -->
+<section id="platform" style="max-width: 1320px; margin: 0 auto; padding: 110px 24px 60px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 820px; align-self: center; text-align: center; align-items: center">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">AI OBSERVABILITY</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.02em">Every call. Every token. Every decision. On the record.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9B5D0">ASA-AI-Guard sits between your agents and your models. It measures latency, error rates and token burn per model — and it says no when an agent steps out of line.</p>
+</div>
+<div style="border: 1px solid #2A2F55; border-radius: 16px; background: #0D1020; padding: 22px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700">AI Observability</span>
+<span style="font-size: 13px; color: #A7A3BF">Model calls, latency, tokens and Guard decisions — measured by ASA-AI-Guard</span>
+</div>
+<div style="display: flex; gap: 6px; font-size: 12px">
+<span style="border: 1px solid #2A2F55; padding: 6px 10px; border-radius: 999px; color: #A7A3BF">1 h</span>
+<span style="border: 1px solid #2A2F55; padding: 6px 10px; border-radius: 999px; color: #A7A3BF">12 h</span>
+<span style="border: 1px solid #E0307F; background: #2A1022; padding: 6px 10px; border-radius: 999px; color: #F06AA5">24 h</span>
+<span style="border: 1px solid #2A2F55; padding: 6px 10px; border-radius: 999px; color: #A7A3BF">7 d</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="font-weight: 600">Requests (ok / errors)</span><span style="display: flex; gap: 10px; color: #A7A3BF; font-size: 11px"><span><span style="display: inline-block; width: 9px; height: 9px; background: #22C55E; margin-right: 4px"></span>ok</span><span><span style="display: inline-block; width: 9px; height: 9px; background: #EF4444; margin-right: 4px"></span>errors</span></span></div>
+<div style="height: 170px; display: flex; align-items: flex-end; gap: 3px; border-bottom: 1px solid #23284A">
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 6.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 9.2%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 12.4%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 15.6%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 18.8%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 22.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 25.2%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 28.4%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 31.6%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 34.8%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 38.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 41.2%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.5%; background: #EF4444"></div>
+<div style="height: 44.4%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 1.9%; background: #EF4444"></div>
+<div style="height: 47.6%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 3.8%; background: #EF4444"></div>
+<div style="height: 50.8%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 5.7%; background: #EF4444"></div>
+<div style="height: 54.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 7.6%; background: #EF4444"></div>
+<div style="height: 57.2%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 9.5%; background: #EF4444"></div>
+<div style="height: 60.4%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 11.4%; background: #EF4444"></div>
+<div style="height: 63.6%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 13.3%; background: #EF4444"></div>
+<div style="height: 66.8%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 15.2%; background: #EF4444"></div>
+<div style="height: 70.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 17.1%; background: #EF4444"></div>
+<div style="height: 73.2%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 19.0%; background: #EF4444"></div>
+<div style="height: 76.4%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 20.9%; background: #EF4444"></div>
+<div style="height: 79.6%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 22.8%; background: #EF4444"></div>
+<div style="height: 82.8%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 24.7%; background: #EF4444"></div>
+<div style="height: 86.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 0.0%; background: #EF4444"></div>
+<div style="height: 3.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 0.0%; background: #EF4444"></div>
+<div style="height: 4.5%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 0.0%; background: #EF4444"></div>
+<div style="height: 6.0%; background: #22C55E"></div>
+</div>
+
+<div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%">
+<div style="height: 0.0%; background: #EF4444"></div>
+<div style="height: 7.5%; background: #22C55E"></div>
+</div>
+
+</div>
+</div>
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; font-weight: 600">Average latency (ms)</div>
+<svg viewBox="0 0 600 170" preserveAspectRatio="none" style="width: 100%; height: 170px; display: block" aria-label="Average latency over 24 hours">
+<line x1="0" y1="85" x2="600" y2="85" stroke="#1E2340" stroke-width="1"></line>
+<path d="M0.0,165.0 L26.1,142.6 L52.2,25.9 L78.3,131.4 L104.3,138.1 L130.4,120.1 L156.5,144.8 L182.6,140.3 L208.7,97.7 L234.8,147.1 L260.9,160.5 L287.0,162.8 L313.0,163.9 L339.1,163.9 L365.2,163.9 L391.3,163.9 L417.4,162.8 L443.5,163.2 L469.6,163.9 L495.7,163.9 L521.7,163.9 L547.8,163.9 L573.9,144.8 L600.0,160.5 L600,165 L0,165 Z" fill="#5A3412" opacity="0.7"></path>
+<path d="M0.0,165.0 L26.1,142.6 L52.2,25.9 L78.3,131.4 L104.3,138.1 L130.4,120.1 L156.5,144.8 L182.6,140.3 L208.7,97.7 L234.8,147.1 L260.9,160.5 L287.0,162.8 L313.0,163.9 L339.1,163.9 L365.2,163.9 L391.3,163.9 L417.4,162.8 L443.5,163.2 L469.6,163.9 L495.7,163.9 L521.7,163.9 L547.8,163.9 L573.9,144.8 L600.0,160.5 " fill="none" stroke="#F59E0B" stroke-width="2"></path>
+</svg>
+</div>
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; font-weight: 600">Active users</div>
+<svg viewBox="0 0 600 170" preserveAspectRatio="none" style="width: 100%; height: 170px; display: block" aria-label="Active users over 24 hours">
+<line x1="0" y1="85" x2="600" y2="85" stroke="#1E2340" stroke-width="1"></line>
+<path d="M0.0,165.0 L26.1,164.3 L52.2,162.4 L78.3,157.2 L104.3,149.3 L130.4,138.8 L156.5,125.8 L182.6,110.1 L208.7,97.0 L234.8,86.5 L260.9,80.0 L287.0,60.3 L313.0,40.7 L339.1,23.7 L365.2,21.1 L391.3,21.1 L417.4,21.1 L443.5,21.1 L469.6,21.1 L495.7,165.0 L521.7,165.0 L547.8,159.8 L573.9,145.4 L600.0,125.8 L600,165 L0,165 Z" fill="#0F3B3A" opacity="0.8"></path>
+<path d="M0.0,165.0 L26.1,164.3 L52.2,162.4 L78.3,157.2 L104.3,149.3 L130.4,138.8 L156.5,125.8 L182.6,110.1 L208.7,97.0 L234.8,86.5 L260.9,80.0 L287.0,60.3 L313.0,40.7 L339.1,23.7 L365.2,21.1 L391.3,21.1 L417.4,21.1 L443.5,21.1 L469.6,21.1 L495.7,165.0 L521.7,165.0 L547.8,159.8 L573.9,145.4 L600.0,125.8 " fill="none" stroke="#2EC4B6" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 13px; padding-top: 6px"><span style="font-weight: 600">AI agents dashboard</span><span style="color: #8A86A6">series per model · gateway for 20 agents</span></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px">
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Invocations (period)</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700">31,629</span>
+<span style="font-size: 12px; color: #AEB6DE">all agents</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Input tokens</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700">835,484</span>
+<span style="font-size: 12px; color: #AEB6DE">period total</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Output tokens</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700">214,943</span>
+<span style="font-size: 12px; color: #AEB6DE">period total</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Active models</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700">10</span>
+<span style="font-size: 12px; color: #AEB6DE">over the period</span>
+</div>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px">
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; font-weight: 600">Errors per model</div>
+<svg viewBox="0 0 600 170" preserveAspectRatio="none" style="width: 100%; height: 170px; display: block" aria-label="Errors per model over 24 hours">
+<line x1="0" y1="85" x2="600" y2="85" stroke="#1E2340" stroke-width="1"></line>
+<path d="M0.0,165.0 L26.1,164.0 L52.2,162.4 L78.3,160.8 L104.3,159.8 L130.4,161.9 L156.5,162.9 L182.6,149.3 L208.7,112.7 L234.8,144.1 L260.9,34.2 L287.0,102.2 L313.0,70.8 L339.1,60.3 L365.2,55.1 L391.3,34.2 L417.4,23.7 L443.5,18.5 L469.6,165.0 L495.7,165.0 L521.7,165.0 L547.8,165.0 L573.9,162.4 L600.0,160.8 " fill="none" stroke="#E0307F" stroke-width="2"></path>
+<path d="M0.0,165.0 L26.1,163.4 L52.2,161.9 L78.3,159.8 L104.3,160.8 L130.4,162.4 L156.5,162.9 L182.6,154.5 L208.7,133.6 L234.8,149.3 L260.9,86.5 L287.0,112.7 L313.0,115.3 L339.1,112.7 L365.2,110.1 L391.3,107.4 L417.4,112.7 L443.5,115.3 L469.6,165.0 L495.7,165.0 L521.7,165.0 L547.8,165.0 L573.9,164.0 L600.0,163.4 " fill="none" stroke="#22C55E" stroke-width="2"></path>
+<path d="M0.0,165.0 L26.1,165.0 L52.2,165.0 L78.3,165.0 L104.3,165.0 L130.4,165.0 L156.5,165.0 L182.6,165.0 L208.7,162.4 L234.8,159.8 L260.9,154.5 L287.0,149.3 L313.0,144.1 L339.1,133.6 L365.2,123.1 L391.3,112.7 L417.4,107.4 L443.5,112.7 L469.6,165.0 L495.7,165.0 L521.7,165.0 L547.8,165.0 L573.9,165.0 L600.0,165.0 " fill="none" stroke="#A855F7" stroke-width="2"></path>
+</svg>
+</div>
+<div style="border: 1px solid #1E2340; border-radius: 12px; padding: 16px; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; gap: 16px">
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+<span style="font-size: 13px; font-weight: 600">Input tokens (total)</span>
+<svg viewBox="0 0 140 140" style="width: 150px; height: 150px" aria-label="Input tokens (total)">
+<circle cx="70" cy="70" r="54" fill="none" stroke="#262B4D" stroke-width="12" stroke-linecap="round" stroke-dasharray="254.5 339.3" transform="rotate(135 70 70)"></circle>
+<circle cx="70" cy="70" r="54" fill="none" stroke="#7B3FC0" stroke-width="12" stroke-linecap="round" stroke-dasharray="193.4 339.3" transform="rotate(135 70 70)"></circle>
+<text x="70" y="78" text-anchor="middle" fill="#EDEBF5" font-size="22" font-weight="700" font-family="Space Grotesk, sans-serif">835.5k</text>
+</svg>
+</div>
+
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px">
+<span style="font-size: 13px; font-weight: 600">Output tokens (total)</span>
+<svg viewBox="0 0 140 140" style="width: 150px; height: 150px" aria-label="Output tokens (total)">
+<circle cx="70" cy="70" r="54" fill="none" stroke="#262B4D" stroke-width="12" stroke-linecap="round" stroke-dasharray="254.5 339.3" transform="rotate(135 70 70)"></circle>
+<circle cx="70" cy="70" r="54" fill="none" stroke="#E0307F" stroke-width="12" stroke-linecap="round" stroke-dasharray="152.7 339.3" transform="rotate(135 70 70)"></circle>
+<text x="70" y="78" text-anchor="middle" fill="#EDEBF5" font-size="22" font-weight="700" font-family="Space Grotesk, sans-serif">214.9k</text>
+</svg>
+</div>
+
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px">
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Model calls</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF">68</span>
+<span style="font-size: 11px; color: #AEB6DE">2 users · ▼3% vs prev.</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Median latency</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF">4.6 s</span>
+<span style="font-size: 11px; color: #AEB6DE">p95 31.1 s · ▼35%</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Time to 1st token</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF">4.6 s</span>
+<span style="font-size: 11px; color: #AEB6DE">11.1 tokens/s out</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Tokens</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF">64.0k</span>
+<span style="font-size: 11px; color: #AEB6DE">60.1k in · 3,868 out</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Error rate</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #FFFFFF">8.8%</span>
+<span style="font-size: 11px; color: #AEB6DE">6 errors · 0 tool calls</span>
+</div>
+
+<div style="background: #18245A; border: 1px solid #2B3C86; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center">
+<span style="font-size: 13px; color: #D7DCF5">Guard decisions</span>
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #F06AA5">8 / 1</span>
+<span style="font-size: 11px; color: #AEB6DE">blocked / flagged · 188 ms</span>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- GUARD CALLOUT -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 110px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">THE GUARD</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.1">188 milliseconds. That's how long a malicious prompt survives.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9B5D0">Every request is analysed inline before it reaches the model. Injection attempts are blocked, risky calls are flagged, and out-of-perimeter tool calls are refused outright — with a full audit trail mapped to OWASP LLM Top 10 and MITRE ATLAS.</p>
+</div>
+<div style="background: #0D1020; border: 1px solid #2A2F55; border-radius: 14px; padding: 22px; font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.9; color: #C9C6DC; overflow-x: auto">
+<div><span style="color: #8A86A6">09:00:31</span> <span style="color: #22C55E">ALLOW</span>  agent=soc-analyst  tool=wazuh.agents</div>
+<div><span style="color: #8A86A6">09:00:34</span> <span style="color: #F87171">BLOCK</span>  agent=web-recon  reason=prompt_injection  LLM01</div>
+<div><span style="color: #8A86A6">09:00:35</span> <span style="color: #F87171">BLOCK</span>  agent=pentest  tool=nmap  target=out_of_scope</div>
+<div><span style="color: #8A86A6">09:00:41</span> <span style="color: #FBBF24">FLAG </span>  agent=cti  reason=sensitive_data_egress  LLM02</div>
+<div><span style="color: #8A86A6">09:00:42</span> <span style="color: #22C55E">ALLOW</span>  agent=voice-arsenal  tool=sip.scan  scope=lab</div>
+<div><span style="color: #8A86A6">09:00:44</span> <span style="color: #F87171">BLOCK</span>  agent=red-team  reason=excessive_agency  LLM06</div>
+<div style="color: #8A86A6">analysis 188 ms · decision logged to audit trail</div>
+</div>
+</div>
+</section>
+
+<!-- AUTONOMOUS SOC -->
+<section id="soc" style="background: #0D0F1D; border-top: 1px solid #1E2340; border-bottom: 1px solid #1E2340">
+<div style="max-width: 1240px; margin: 0 auto; padding: 110px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">AUTONOMOUS SOC</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.02em">Your Tier-1 analyst now answers in seconds. And it never leaks.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9B5D0">Ask in plain language. The AI SOC Analyst queries Wazuh, MISP and VirusTotal through governed MCP tools, correlates the answer and hands it back — while SENTINEL masks what must never leave the perimeter.</p>
+<div style="display: flex; flex-direction: column; gap: 12px; font-size: 16px; color: #D7D3EA">
+<div style="display: flex; gap: 12px; align-items: flex-start"><span style="color: #22C55E; font-weight: 700">✓</span>727 SIEM alerts triaged by AI, not by burnt-out humans</div>
+<div style="display: flex; gap: 12px; align-items: flex-start"><span style="color: #22C55E; font-weight: 700">✓</span>995 live IOCs pushed from a 588k MISP base into Wazuh</div>
+<div style="display: flex; gap: 12px; align-items: flex-start"><span style="color: #22C55E; font-weight: 700">✓</span>Every tool call scoped, logged and replayable</div>
+</div>
+<a href="https://github.com/khemegha/ASA-AI-SOC-Analyst" style="align-self: flex-start; border: 1px solid #3A3F66; color: #EDEBF5; text-decoration: none; padding: 14px 22px; border-radius: 10px; font-weight: 600; font-size: 16px">ASA-AI SOC Analyst on GitHub →</a>
+</div>
+<!-- chat mockup -->
+<div style="background: #161616; border: 1px solid #2E2E2E; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 16px; font-size: 14px">
+<div style="align-self: flex-end; background: #2A2A2A; border-radius: 18px; padding: 10px 16px; max-width: 85%; color: #EDEDED">List the OS and versions of every machine connected to Wazuh</div>
+<div style="display: flex; gap: 12px">
+<div style="width: 32px; height: 32px; flex: none; border-radius: 50%; background: #3A1458; border: 1px solid #6B2FA0; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700">ASA</div>
+<div style="display: flex; flex-direction: column; gap: 10px; min-width: 0; flex: 1">
+<span style="font-weight: 600; color: #EDEDED">AI SOC Analyst</span>
+<span style="font-size: 13px; color: #9AA59A"><span style="color: #22C55E">✓</span> Result from tool_wazuh_agents_post</span>
+<span style="color: #D6D6D6">Here are the operating systems and versions of the machines connected to Wazuh:</span>
+<span style="font-weight: 600; color: #EDEDED">Active machines</span>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 14px; border-left: 2px solid #2E2E2E">
+<span style="font-weight: 600; color: #EDEDED; filter: blur(6px); user-select: none; width: fit-content">HOST-REDACT-01</span>
+<span style="color: #BDBDBD">OS: Microsoft Windows 11 Pro</span>
+<span style="color: #BDBDBD">OS version: <span style="filter: blur(5px); user-select: none">00.0.00000.0000</span></span>
+<span style="color: #BDBDBD">Agent version: <span style="filter: blur(5px); user-select: none">Wazuh v0.00.0</span></span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 14px; border-left: 2px solid #2E2E2E">
+<span style="font-weight: 600; color: #EDEDED; filter: blur(6px); user-select: none; width: fit-content">HOST-REDACT-02</span>
+<span style="color: #BDBDBD">OS: Ubuntu</span>
+<span style="color: #BDBDBD">OS version: <span style="filter: blur(5px); user-select: none">00.00.0 LTS</span></span>
+<span style="color: #BDBDBD">Agent version: <span style="filter: blur(5px); user-select: none">Wazuh v0.00.0</span></span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 14px; border-left: 2px solid #2E2E2E">
+<span style="font-weight: 600; color: #EDEDED; filter: blur(6px); user-select: none; width: fit-content">HOST-REDACT-03</span>
+<span style="color: #BDBDBD">OS: Ubuntu</span>
+<span style="color: #BDBDBD">OS version: <span style="filter: blur(5px); user-select: none">00.00.0 LTS</span></span>
+<span style="color: #BDBDBD">Agent version: <span style="filter: blur(5px); user-select: none">Wazuh v0.00.0</span></span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 14px; border-left: 2px solid #2E2E2E">
+<span style="font-weight: 600; color: #EDEDED; filter: blur(6px); user-select: none; width: fit-content">HOST-REDACT-04</span>
+<span style="color: #BDBDBD">OS: Ubuntu</span>
+<span style="color: #BDBDBD">OS version: <span style="filter: blur(5px); user-select: none">00.00.0 LTS</span></span>
+<span style="color: #BDBDBD">Agent version: <span style="filter: blur(5px); user-select: none">Wazuh v0.00.0</span></span>
+</div>
+
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #F06AA5">● hostnames &amp; versions masked by SENTINEL egress policy</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PILLARS -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 110px 24px; display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 820px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">ONE PLATFORM · THREE PILLARS</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.08; letter-spacing: -0.02em">Attack it. Defend it. Secure the AI doing both.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B9B5D0">MCP connects your AI to everything. That is the risk — and the opportunity. We turn the same protocol into your advantage.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #F87171">Offensive</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">AI-driven pentesting with nmap, nuclei and ProjectDiscovery tools, plus a dedicated VoIP/SIP arsenal — all fenced by a perimeter guardrail that refuses anything out of scope.</p>
+</div>
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #60A5FA">Defensive</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">A white-labelled Wazuh SIEM, MISP threat intelligence and a security data lake refreshed every five minutes — triaged by AI agents around the clock.</p>
+</div>
+<div style="background: #12162A; border: 1px solid #23284A; border-radius: 14px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #C084FC">AI Security</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #B9B5D0">Garak-driven red teaming against your local models, an AI inventory of every agent and MCP server, and continuous OWASP LLM scoring per agent.</p>
+</div>
+</div>
+</section>
+
+<!-- COMPLIANCE + SOVEREIGN -->
+<section id="compliance" style="background: #0D0F1D; border-top: 1px solid #1E2340; border-bottom: 1px solid #1E2340">
+<div style="max-width: 1240px; margin: 0 auto; padding: 100px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">COMPLIANCE, BUILT IN</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1">The regulators are coming for AI. Be audit-ready the day they arrive.</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="border: 1px solid #3A3F66; border-radius: 999px; padding: 10px 16px; font-size: 15px">OWASP LLM Top 10</span>
+<span style="border: 1px solid #3A3F66; border-radius: 999px; padding: 10px 16px; font-size: 15px">OWASP LLM per agent</span>
+<span style="border: 1px solid #3A3F66; border-radius: 999px; padding: 10px 16px; font-size: 15px">MITRE ATLAS</span>
+<span style="border: 1px solid #3A3F66; border-radius: 999px; padding: 10px 16px; font-size: 15px">EU AI Act</span>
+<span style="border: 1px solid #3A3F66; border-radius: 999px; padding: 10px 16px; font-size: 15px">Full audit log</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #E0307F; letter-spacing: 0.1em">SOVEREIGN BY DESIGN</span>
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(28px, 3.2vw, 42px); line-height: 1.1">Your models. Your infrastructure. Nothing phones home.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #B9B5D0">SENTINEL runs on-premise with local LLMs served by Ollama, routed and governed through 13 MCP servers. Cloud models are optional, never required.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 12px">
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">deepseek-coder:6.7b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">gemma2:9b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">llama3.1:8b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">mistral:7b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">phi3.5:3.8b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">qwen2.5-coder:7b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">qwen2.5:7b</span>
+
+<span style="background: #15122A; border: 1px solid #3A2A5C; border-radius: 6px; padding: 6px 10px; color: #D8C9F2">auto-router</span>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="max-width: 1240px; margin: 0 auto; padding: 120px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px">
+<h2 style="margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: clamp(36px, 5vw, 68px); line-height: 1.04; letter-spacing: -0.03em; max-width: 1000px">Automate your SOC.<br><span style="color: #E0307F">Without handing the attacker a new one.</span></h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #B9B5D0; max-width: 680px">We'll plug SENTINEL into your AI workflows and show you, live, what your agents are really doing — and what they would have done without us.</p>
+<a href="mailto:contact@asa-ai.fr?subject=SENTINEL%20MCP%20demo" style="background: #E0307F; color: #FFFFFF; text-decoration: none; padding: 18px 32px; border-radius: 10px; font-weight: 600; font-size: 18px">Book a live demo</a>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8A86A6">contact@asa-ai.fr · <a href="https://www.asa-ai.fr/">www.asa-ai.fr</a> · <a href="https://github.com/khemegha">github.com/khemegha</a></span>
+</section>
+
+<footer style="border-top: 1px solid #1E2340">
+<div style="max-width: 1240px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 13px; color: #8A86A6">
+<span>© 2026 ASA AI · SENTINEL MCP — Security Lake</span>
+<span style="display: flex; flex-wrap: wrap; gap: 18px"><a href="https://github.com/khemegha/ASA-AI-MCP-Security">ASA-AI-MCP-Security</a><a href="https://github.com/khemegha/ASA-AI-SOC-Analyst">ASA-AI-SOC-Analyst</a><a href="https://github.com/khemegha/ASA-AI-VoIP-Threat-Sentinel">ASA-AI-VoIP-Threat-Sentinel</a></span>
+<span>Dashboards shown with sensitive identifiers redacted.</span>
+</div>
+</footer>
+</div>
+</body>
+</html>
